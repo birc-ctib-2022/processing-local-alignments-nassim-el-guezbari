@@ -130,7 +130,7 @@ if __name__ == '__main__':
         sys.exit(1)
     if sys.argv[1] not in ["to_cig", "from_cig"]:
         print(f"Unknown subcommand {sys.argv[1]}.", file=sys.stderr)
-        sys.exit(1)
+        sys.exit(2)
 
     # Checking arguments and getting the files
     infile, outfile = sys.stdin, sys.stdout
@@ -152,7 +152,7 @@ if __name__ == '__main__':
         case _:
             # either too few or too many arguments
             print("Incorrect number of arguments.", file=sys.stderr)
-            sys.exit(1)
+            sys.exit(3)
 
     if sys.argv[1] == "to_cig":
         to_cig_cmd(infile, outfile)
