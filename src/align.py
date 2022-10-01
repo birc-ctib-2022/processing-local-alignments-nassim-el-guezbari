@@ -16,7 +16,27 @@ def align(x: str, y: str, edits: str) -> tuple[str, str]:
     ('ACCACAGT-CATA', 'A-CAGAGTACAAA')
 
     """
-    return "", ""
+    #Defining our 2 rows of sequences as strings
+    Seq_1=''
+    Seq_2=''
+    #Defining positions in our 2 sequences since deletions and insertions would miss-align our sequences.
+    p_seq_1=0
+    p_seq_2=0
+    for edit in edits:
+        if edit == "M":
+            Seq_1+=x[p_seq_1]
+            Seq_2+=y[p_seq_2]
+            p_seq_1+=1
+            p_seq_2+=1
+        elif edit == "D":
+            Seq_1+=x[p_seq_1]
+            Seq_2+="-"
+            p_seq_1+=1
+        else:
+            Seq_1+="-"
+            Seq_2+=y[p_seq_2]
+            p_seq_2+=1
+    return (Seq_1,Seq_2)
 
 
 def edits(x: str, y: str) -> str:
