@@ -68,4 +68,9 @@ def edits_to_cigar(edits: str) -> str:
     '1M1D6M1I4M'
 
     """
-    return ""
+    edit_blocks=split_blocks(edits)
+    cigar=''
+    for block in edit_blocks:
+        cigar+=len(block)
+        cigar+=block[0]
+    return cigar
