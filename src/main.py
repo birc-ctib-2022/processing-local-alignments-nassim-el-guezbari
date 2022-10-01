@@ -130,7 +130,7 @@ if __name__ == '__main__':
         sys.exit(1)
     if sys.argv[1] not in ["to_cig", "from_cig"]:
         print(f"Unknown subcommand {sys.argv[1]}.", file=sys.stderr)
-        sys.exit(1)
+        sys.exit(2)
 
     # Checking arguments and getting the files
     infile, outfile = sys.stdin, sys.stdout
@@ -140,16 +140,19 @@ if __name__ == '__main__':
             pass
         case 3:
             # one file argument
-            print("Feature not implemented.", file=sys.stderr)
-            sys.exit(1)
+            #print("Feature not implemented.", file=sys.stderr)
+            #sys.exit(1)
+            infile=open(sys.argv[2],"r")
         case 4:
             # two file arguments
-            print("Feature not implemented.", file=sys.stderr)
-            sys.exit(1)
+            #print("Feature not implemented.", file=sys.stderr)
+            #sys.exit(1)
+            infile=open(sys.argv[2],"r")
+            outfile=open(sys.argv[3],"w")
         case _:
             # either too few or too many arguments
             print("Incorrect number of arguments.", file=sys.stderr)
-            sys.exit(1)
+            sys.exit(3)
 
     if sys.argv[1] == "to_cig":
         to_cig_cmd(infile, outfile)
@@ -159,7 +162,7 @@ if __name__ == '__main__':
         # The check above should prevent this, but it is always good
         # to program defensively...
         print(f"Unknown command '{sys.argv[1]}'.", file=sys.stderr)
-        sys.exit(1)
+        sys.exit(4)
 
     # It is polite to close files when we no longer need them.
     # It doesn't matter here because we are just about to terminate
