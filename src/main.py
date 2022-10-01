@@ -140,8 +140,9 @@ if __name__ == '__main__':
             pass
         case 3:
             # one file argument
-            print("Feature not implemented.", file=sys.stderr)
-            sys.exit(1)
+            #print("Feature not implemented.", file=sys.stderr)
+            #sys.exit(1)
+            infile=open(sys.argv[2],"r")
         case 4:
             # two file arguments
             #print("Feature not implemented.", file=sys.stderr)
