@@ -162,7 +162,7 @@ if __name__ == '__main__':
         # The check above should prevent this, but it is always good
         # to program defensively...
         print(f"Unknown command '{sys.argv[1]}'.", file=sys.stderr)
-        sys.exit(1)
+        sys.exit(4)
 
     # It is polite to close files when we no longer need them.
     # It doesn't matter here because we are just about to terminate
