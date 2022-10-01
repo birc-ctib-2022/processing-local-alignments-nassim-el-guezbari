@@ -53,4 +53,18 @@ def edits(x: str, y: str) -> str:
     'MDMMMMMMIMMMM'
 
     """
-    return ""
+    #Defining position in sequence
+    p_seq_y=0
+    #Defining format for edit
+    edits=''
+    for base in x:
+        if base=="-":
+            edits+="I"
+            p_seq_y+=1
+        elif y[p_seq_y]=='-':
+            edits+="D"
+            p_seq_y+=1
+        else:
+            edits+="M"
+            p_seq_y+=1
+    return edits
