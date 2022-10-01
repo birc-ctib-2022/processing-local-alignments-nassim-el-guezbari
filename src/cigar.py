@@ -33,8 +33,11 @@ def cigar_to_edits(cigar: str) -> str:
     'MDMMMMMMIMMMM'
 
     """
-    return ""
-
+    cigar_pairs=split_pairs(cigar)
+    edits=''
+    for pair in cigar_pairs:
+        edits+=pair[1]*pair[0]
+    return edits
 
 def split_blocks(x: str) -> list[str]:
     """Split a string into blocks of equal character.
