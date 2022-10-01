@@ -33,10 +33,14 @@ def cigar_to_edits(cigar: str) -> str:
     'MDMMMMMMIMMMM'
 
     """
-    cigar_pairs=split_pairs(cigar)
-    edits=''
-    for pair in cigar_pairs:
-        edits+=pair[1]*pair[0]
+    cigar_list = split_pairs(cigar)
+
+    edits = ""
+
+    for pair in cigar_list:
+        # Goes through every pair and adds the character an amout of times corresponing to the front integer of the pair.
+        edits += pair[1] * pair[0]
+
     return edits
 
 def split_blocks(x: str) -> list[str]:
