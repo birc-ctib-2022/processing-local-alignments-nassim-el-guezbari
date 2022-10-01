@@ -22,7 +22,7 @@ def align(x: str, y: str, edits: str) -> tuple[str, str]:
     #Defining positions in our 2 sequences since deletions and insertions would miss-align our sequences.
     p_seq_1=0
     p_seq_2=0
-    for edit in edits:
+    for edit in edits:    
         if edit == "M":
             Seq_1+=x[p_seq_1]
             Seq_2+=y[p_seq_2]
@@ -32,7 +32,7 @@ def align(x: str, y: str, edits: str) -> tuple[str, str]:
             Seq_1+=x[p_seq_1]
             Seq_2+="-"
             p_seq_1+=1
-        else:
+        elif edit == "I":
             Seq_1+="-"
             Seq_2+=y[p_seq_2]
             p_seq_2+=1
